@@ -4,12 +4,12 @@ const Router = require("koa-router");
 const router = new Router();
 const cors = require("koa2-cors");
 const bodyParser = require('koa-bodyparser');
-const {host, port} = require("./utils")
+const { host, port } = require("./utils")
 const manage = require('./router/manage')
 const web = require('./router/web')
 const nomatch = require('./router/nomatch')
 
-router.get("/", async ctx=>{
+router.get("/", async ctx => {
     ctx.body = "根路径"
 })
 
@@ -27,6 +27,6 @@ app.use(bodyParser());
 app.use(cors());
 app.use(router.routes(), router.allowedMethods());
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running at ${host}:${port}`);
 })

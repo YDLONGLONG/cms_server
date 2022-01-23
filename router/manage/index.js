@@ -11,4 +11,3 @@ router.use("/login", login.routes(), login.allowedMethods());
 router.use("/register", register.routes(), register.allowedMethods());
 
 module.exports = router;
- 

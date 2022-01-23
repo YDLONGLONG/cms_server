@@ -6,4 +6,3 @@ router.get('/', async (ctx) => {
 })
 
 module.exports = router;
- 

@@ -4,7 +4,7 @@ const fs = require("fs")
 const path = require("path")
 const mime = require("mime-types")
 
-router.get('/', async ctx=>{
+router.get('/', async ctx => {
     const filePath = path.join(__dirname, "../../static/images/404.jfif");
     const file = fs.readFileSync(filePath); // 读取文件
     const mimeType = mime.lookup(filePath)  // 读取文件类型

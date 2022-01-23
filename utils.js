@@ -16,27 +16,27 @@ const pool = mysql.createPool({
 })
 
 //对数据库进行增删改查操作的基础
-const query = (sql,callback) => {
-    pool.getConnection(function(err,connection){
-        connection.query(sql, function (err,rows) {
-            callback(err,rows)
+const query = (sql, callback) => {
+    pool.getConnection(function (err, connection) {
+        connection.query(sql, function (err, rows) {
+            callback(err, rows)
             connection.release()
         })
     })
 }
 
-const returnMsg = (errCode,message,data) => {
-    return{
-        errCode:errCode || 0,
-        message:message || "",
-        data:data || {}
+const returnMsg = (errCode, message, data) => {
+    return {
+        errCode: errCode || 0,
+        message: message || "",
+        data: data || {}
     }
 }
 
 const queryFN = (sql) => {
-    return new Promise((resolve,reject)=>{
-        query(sql,(err,rows)=>{
-            if(err) reject(err);
+    return new Promise((resolve, reject) => {
+        query(sql, (err, rows) => {
+            if (err) reject(err);
             resolve(rows)
         })
     })
