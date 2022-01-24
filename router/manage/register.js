@@ -2,7 +2,7 @@ const Router = require('koa-router');
 const router = new Router();
 const { returnMsg, queryFN } = require("../../utils")
 
-router.get('/', async (ctx) => {
+router.post('/', async (ctx) => {
     let { username, password } = ctx.request.body;
     if (username && password) {
         let sql = `SELECT * FROM user WHERE username='${username}'`

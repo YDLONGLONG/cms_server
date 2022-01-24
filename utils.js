@@ -5,6 +5,7 @@ const port = 3001;
 
 // 引入mysql
 const mysql = require("mysql");
+const jwt = require('jsonwebtoken')
 
 // 创建连接池
 const pool = mysql.createPool({
@@ -42,6 +43,15 @@ const queryFN = (sql) => {
     })
 }
 
+const jwtVerify = (token)=>{
+    try {
+        jwt.verify(token,'liyichen')
+    } catch (error) {
+        return false;
+    }
+    return true;
+}
+
 module.exports = {
-    host, port, query, returnMsg, queryFN
+    host, port, query, returnMsg, queryFN, jwtVerify
 }

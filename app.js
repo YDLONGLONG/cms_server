@@ -28,6 +28,7 @@ app.use(async (ctx, next) => {
 app.use(cors());
 app.use(bodyParser());
 app.use(static(path.join(__dirname,"static")));
+app.use(static(path.join(__dirname,"router/manage/upload")));
 app.use(router.routes(), router.allowedMethods());
 
 app.listen(port, () => {
