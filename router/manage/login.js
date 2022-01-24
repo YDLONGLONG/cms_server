@@ -16,8 +16,13 @@ router.post('/', async (ctx) => {
             )
             let sql1 = `UPDATE user SET token='${token}' WHERE username='${username}'`;
             await queryFN(sql1)
-            let result1 = await queryFN(sql1)
-            ctx.body = returnMsg(0, "登录成功", result1)
+            let result1 = await queryFN(sql)
+            let obj = {
+                username:result1[0].username,
+                "cms-token":result1[0].token,
+                avatar:result1[0].avatar
+            }
+            ctx.body = returnMsg(0, "登录成功", obj)
         } else {
             ctx.body = returnMsg(2, "用户不存在", "用户不存在，请先注册")
         }

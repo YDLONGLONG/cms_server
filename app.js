@@ -8,6 +8,8 @@ const { host, port } = require("./utils")
 const manage = require('./router/manage')
 const web = require('./router/web')
 const nomatch = require('./router/nomatch')
+const static = require('koa-static')
+const path = require("path")
 
 router.get("/", async ctx => {
     ctx.body = "根路径"
@@ -23,8 +25,9 @@ app.use(async (ctx, next) => {
     }
 })
 
-app.use(bodyParser());
 app.use(cors());
+app.use(bodyParser());
+app.use(static(path.join(__dirname,"static")));
 app.use(router.routes(), router.allowedMethods());
 
 app.listen(port, () => {
