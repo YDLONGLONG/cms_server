@@ -20,7 +20,9 @@ router.post('/', async (ctx) => {
             let obj = {
                 username:result1[0].username,
                 "cms-token":result1[0].token,
-                avatar:result1[0].avatar
+                avatar:result1[0].avatar,
+                player:result1[0].player,
+                editable:result1[0].editable
             }
             ctx.body = returnMsg(0, "登录成功", obj)
         } else {

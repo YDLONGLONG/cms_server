@@ -1,10 +1,8 @@
 const Router = require("koa-router")
 const router = new Router();
 const { returnMsg, queryFN, jwtVerify } = require("../../utils")
-const fs = require("fs");
 const multer = require('koa-multer');//加载koa-multer模块
 const path = require("path")
-const jwt = require('jsonwebtoken');
 
 //存储文件的名称
 let myfilename = "";

@@ -10,7 +10,9 @@ router.post('/', async (ctx) => {
         if (result.length > 0) {
             ctx.body = returnMsg(2, "注册失败", "该用户已注册")
         } else {
-            let sql1 = `INSERT INTO  user VALUES (null, '${username}', '${password}', null, 'avatar.jpg')`
+            //editable: 0否1是
+            //player: normal vip
+            let sql1 = `INSERT INTO  user VALUES (null, '${username}', '${password}', null, 'avatar.jpg','normal',0)`
             await queryFN(sql1)
             ctx.body = returnMsg(0, "注册成功", result)
         }
