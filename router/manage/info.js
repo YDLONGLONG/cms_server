@@ -2,6 +2,7 @@ const Router = require('koa-router');
 const router = new Router();
 const { returnMsg, queryFN, jwtVerify } = require("../../utils")
 
+//获取个人信息
 router.get('/',async ctx=>{
     // ctx.request 请求   ctx.request.headers 请求头   ctx.request.body 请求体
     // ctx.response 响应   ctx.respond.body 返回给前端的数据
@@ -16,6 +17,7 @@ router.get('/',async ctx=>{
     ctx.body = result[0];
 })
 
+//修改个人信息
 router.post('/',async ctx=>{
     let token = ctx.request.headers['cms-token'];
     //鉴权
